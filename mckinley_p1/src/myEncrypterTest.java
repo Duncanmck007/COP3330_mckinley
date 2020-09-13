@@ -9,6 +9,6 @@ public class myEncrypterTest
         {
             String encrypt;
             Encrypter e = new Encrypter();
-            assertEquals("1290", e.encrypt("2345"));
+            assertEquals("7777", e.encrypt("0000"));
         }
 }
