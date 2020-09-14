@@ -8,7 +8,7 @@ public class myDecrypterTest
     void testDecrypt0189to1234()
         {
             Decrypter e = new Decrypter();
-            assertEquals("0000", e.decrypt("7777"));
+            assertEquals("1234", e.decrypt("0189"));
         }
 
 }

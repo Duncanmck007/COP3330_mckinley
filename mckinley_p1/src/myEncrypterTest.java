@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class myEncrypterTest
 {
     @Test
-    void testEncrypt1234to0189()
-        {
-            String encrypt;
-            Encrypter e = new Encrypter();
-            assertEquals("7777", e.encrypt("0000"));
-        }
+    void testEncrypt0189to1234()
+    {
+        Encrypter e = new Encrypter();
+        assertEquals("0000", e.encrypt("3333"));
+    }
+
 }

@@ -1,55 +1,37 @@
+import java.util.Arrays;
+
 public class Decrypter
 {
-    //run encrypt enough to learn the modulo formula backwards
     public static String decrypt(String decrypt)
     {
         int[] array = new int[4];
-        //String decrypt = ("0189");
-        //Assigning char to an array - same as encrypter
-        for (int i = 0; i < 4; i++)
+        int[] placeholderArray = new int[4];
+        int i;
+        for (i = 0; i < 4; i++)
         {
             char x = decrypt.charAt(i);
             array[i] = Character.getNumericValue(x);
+            placeholderArray[i] = array[i];
         }
 
-        int placeholder = array[0];
-        array[0] = array[2];
-        array[2] = placeholder;
-        placeholder = array[1];
-        array[1] = array[3];
-        array[3] = placeholder;
+        array[0] = placeholderArray[2];
+        array[1] = placeholderArray[3];
+        array[2] = placeholderArray[0];
+        array[3] = placeholderArray[1];
 
-        //System.out.println(array[0]);
-        //System.out.println(array[1]);
-        //System.out.println(array[2]);
-        //System.out.println(array[3]);
-
-        placeholder = 0;
-
-        for(int i = 0; i < 4; i++)
+        for (i = 0; i < 4; i++)
         {
-            placeholder = array[i];
-            placeholder = placeholder + 3;
-            placeholder = placeholder % 10;
-            array[i] = placeholder;
-            System.out.println(placeholder);
+            array[i] = (array[i] + 3)% 10;     //math for algorithms
+            placeholderArray[i] = array[i];
         }
-        int arrayConverter = 0;
 
-        for(int i = 0; i < 4; i++)
-            arrayConverter = array[i] + (arrayConverter * 10);
+        String test = Arrays.toString(array)
+                .replace(",", "")
+                .replace("[", "")
+                .replace("]", "")
+                .replace(" ", "");
+        String decryptedNum = test;
+        return decryptedNum;
 
-        String decryptedNum = Integer.toString(arrayConverter);
-
-        //if(array[0] == 0)
-           // decryptedNum = "0" + decryptedNum;
-        if(array[1] == 0)
-            decryptedNum = "0" + decryptedNum;
-        if(array[2] == 0)
-            decryptedNum = "0" + decryptedNum;
-        if(array[3] == 0)
-            decryptedNum = "0" + decryptedNum;
-
-     return decryptedNum;
     }
 }

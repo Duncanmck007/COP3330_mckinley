@@ -1,66 +1,45 @@
+import java.util.Arrays;
 public class Encrypter
 {
-
+    //accept string encrypt from external class
     public static String encrypt(String encrypt)
+    {
+        //need new array for storage of the 4 string values
+        int[] array = new int[4];
+        int[] placeholderArray = new int[4];
+        int i;
 
+        for (i = 0; i < 4; i++)
         {
-            int[] array = new int[4];
-            int i;
-            //String encrypt = "1234";
-            System.out.println(encrypt);
-
-            for (i = 0; i < 4; i++)
-                {
-                    //grabbing character and setting to variable
-                    char x = encrypt.charAt(i);
-                    //.getNumericValue to assign char to number for array
-                    array[i] = Character.getNumericValue(x);
-                }
-
-            //algorithms for finding +7 /10 remainder
-            for(i = 0; i < 4; i++)
-                {
-                    int placeholder;
-                    placeholder = array[i];
-                    placeholder = placeholder + 7;
-                    placeholder = placeholder % 10;
-                    array[i] = placeholder;
-                }
-            //System.out.println(array[0]);
-            //System.out.println(array[1]);
-            //System.out.println(array[2]);
-            //System.out.println(array[3]);
-
-            //switching around of 0 to 2 and 1 to 3
-            int placeholder = array[0];
-            array[0] = array[2];
-            array[2] = placeholder;
-            placeholder = array[1];
-            array[1] = array[3];
-            array[3] = placeholder;
-
-            //System.out.println(array[0]);
-            //System.out.println(array[1]);
-            //System.out.println(array[2]);
-            //System.out.println(array[3]);
-
-            int arrayConverter = 0;
-
-
-            //for(int i = 0; i < 4; i++)
-              //  arrayConverter = array[i];
-            //String encryptedNum = Integer.toString(arrayConverter);
-
-
-            for(i = 0; i < 4; i++)
-                arrayConverter = array[i]+ + (arrayConverter * 10);
-
-            String encryptedNum = Integer.toString(arrayConverter);
-
-            if(array[0] == 0)
-                encryptedNum = "0" + encryptedNum;
-
-            //System.out.println(encryptedNum);
-            return encryptedNum;
+            //grabbing character and setting to variable
+            char x = encrypt.charAt(i);
+            //.getNumericValue to assign char to number for array
+            array[i] = Character.getNumericValue(x);
         }
+
+        //algorithms for finding +7 /10 remainder
+        for (i = 0; i < 4; i++)
+        {
+            array[i] = (array[i] + 7)% 10;     //math for algorithms
+            placeholderArray[i] = array[i];    //for later use in position switching
+        }
+
+        //switching around of 0 to 2 and 1 to 3
+        array[0] = placeholderArray[2];
+        array[1] = placeholderArray[3];
+        array[2] = placeholderArray[0];
+        array[3] = placeholderArray[1];
+
+
+        String test = Arrays.toString(array)
+            .replace(",", "")
+            .replace("[", "")
+            .replace("]", "")
+            .replace(" ", "");
+        String encryptedNum = test;
+        return encryptedNum;
+
+    }
 }
+
+
