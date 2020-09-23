@@ -1,4 +1,5 @@
 import java.util.Arrays;
+
 public class Encrypter
 {
     //accept string encrypt from external class
