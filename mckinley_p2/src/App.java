@@ -31,7 +31,7 @@ public class App
 
         while(true)
         {
-            System.out.print("Enter your height in inches: ");
+            System.out.print("Enter your weight in pounds: ");
             weight = Double.parseDouble(input.nextLine());
             if(weight <= 0)
             {
@@ -73,8 +73,29 @@ public class App
     }
     private static void displayBmiInfo(BodyMassIndex bmi)
     {
-        System.out.println(bmi);
+        System.out.println(bmi.bmi);
+        System.out.println(bmi.category);
     }
+
+    private static void displayBmiStatistics(ArrayList bmiData)
+    {
+        double placeholder = 0;
+        double size = 0;
+        double sum = 0;
+        double avg = 0;
+        size = bmiData.size();
+
+        for(int i = 0; i < bmiData.size(); i++)
+        {
+            placeholder = (double) bmiData.get(i);
+            sum += placeholder;
+        }
+
+       avg = sum/size;
+
+        System.out.printf("The average of your bmi scores is: %f", avg);
+    }
+
 
 
     public static void main(String[] args)
@@ -86,12 +107,15 @@ public class App
         {
             double height = getUserHeight();
             double weight = getUserWeight();
-            BodyMassIndex bmi = new BodyMassIndex(height, weight);
 
+            BodyMassIndex bmi = new BodyMassIndex(height, weight);
             bmiData.add(bmi);
+
             displayBmiInfo(bmi);
         }
 
-       //displayBmiStatistics(bmiData);
+       displayBmiStatistics(bmiData);
     }
+
+
 }
