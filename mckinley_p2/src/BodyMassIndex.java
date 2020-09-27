@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class BodyMassIndex
 {
-    static double bmi = 0;
+    double bmi = 0;
     static String category = null;
 
     public BodyMassIndex(double height, double weight)

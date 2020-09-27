@@ -1,102 +1,107 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
-public class App
-{
-    private static double getUserHeight()
-    {
-        boolean badInput =  true;
+public class App  {
+
+    private static double getUserHeight() {
         double height;
         Scanner input = new Scanner(System.in);
 
-        while(true)
-        {
+        while (true) {
             System.out.print("Enter your height in inches: ");
+
             height = Double.parseDouble(input.nextLine());
-            if(height <= 0)
-            {
+
+            if (height <= 0) {
                 System.out.print("Please enter a positive number!\n ");
-            }
-            else
-            return height;
+            } else
+                return height;
         }
 
 
     }
 
-    private static double getUserWeight()
-    {
+    private static double getUserWeight() {
         double weight;
         Scanner input = new Scanner(System.in);
 
-        while(true)
-        {
+        while (true) {
             System.out.print("Enter your weight in pounds: ");
+
             weight = Double.parseDouble(input.nextLine());
-            if(weight <= 0)
-            {
+
+            if (weight <= 0) {
                 System.out.print("Please enter a positive number!\n ");
-            }
-            else
+            } else
                 return weight;
         }
     }
 
-    private static boolean moreInput()
-    {
+    private static boolean moreInput() {
         Scanner input = new Scanner(System.in);
         String answer;
         boolean userChoice;
 
         System.out.println("Do you have any more information to enter? y/n");
 
-        while (true)
-        {
+        while (true) {
             answer = input.nextLine().trim().toLowerCase();
-            if (answer.equals("y"))
-            {
+            if (answer.equals("y")) {
                 userChoice = true;
                 return true;
-            }
-
-            else if (answer.equals("n"))
-            {
+            } else if (answer.equals("n")) {
                 userChoice = false;
                 return false;
-            }
-
-            else
-            {
+            } else {
                 System.out.println("Please enter in this format: y/n");
             }
         }
     }
+
     private static void displayBmiInfo(BodyMassIndex bmi)
     {
+        System.out.println("Your bmi is: ");
         System.out.println(bmi.bmi);
+        System.out.println("Your category is: ");
         System.out.println(bmi.category);
+
     }
 
-    private static void displayBmiStatistics(ArrayList bmiData)
+    public static void displayBmiStatistics(ArrayList<BodyMassIndex> bmiData)
     {
-        double placeholder = 0;
-        double size = 0;
         double sum = 0;
-        double avg = 0;
-        size = bmiData.size();
+        double size = bmiData.size();
+        //bmiArrayConverter(bmiData);
 
-        for(int i = 0; i < bmiData.size(); i++)
+        //for(double temp : bmiData.)
+           // sum += temp;
+
+
+        for (int i = 0; i < bmiData.size(); i++)
         {
-            placeholder = (double) bmiData.get(i);
-            sum += placeholder;
+            sum += bmiData.get(i).bmi;
+            System.out.println(sum);
         }
 
-       avg = sum/size;
+        System.out.println(size);
+        double avg = sum / size;
+        System.out.printf("The average of your bmi scores is: %.2f",avg);
 
-        System.out.printf("The average of your bmi scores is: %f", avg);
+
+
     }
 
 
+
+
+
+
+    public static void bmiArrayConverter(ArrayList<BodyMassIndex> bmiData)
+    {
+        for (int i = 0; i < bmiData.size(); i++)
+        {
+
+        }
+    }
 
     public static void main(String[] args)
     {
