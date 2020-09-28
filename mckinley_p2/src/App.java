@@ -39,19 +39,17 @@ public class App  {
     private static boolean moreInput() {
         Scanner input = new Scanner(System.in);
         String answer;
-        boolean userChoice;
-
         System.out.println("Do you have any more information to enter? y/n");
 
         while (true) {
             answer = input.nextLine().trim().toLowerCase();
             if (answer.equals("y")) {
-                userChoice = true;
                 return true;
-            } else if (answer.equals("n")) {
-                userChoice = false;
+            }
+            else if (answer.equals("n")) {
                 return false;
-            } else {
+            }
+            else {
                 System.out.println("Please enter in this format: y/n");
             }
         }
@@ -70,37 +68,15 @@ public class App  {
     {
         double sum = 0;
         double size = bmiData.size();
-        //bmiArrayConverter(bmiData);
-
-        //for(double temp : bmiData.)
-           // sum += temp;
-
 
         for (int i = 0; i < bmiData.size(); i++)
         {
             sum += bmiData.get(i).bmi;
-            System.out.println(sum);
         }
 
-        System.out.println(size);
         double avg = sum / size;
         System.out.printf("The average of your bmi scores is: %.2f",avg);
 
-
-
-    }
-
-
-
-
-
-
-    public static void bmiArrayConverter(ArrayList<BodyMassIndex> bmiData)
-    {
-        for (int i = 0; i < bmiData.size(); i++)
-        {
-
-        }
     }
 
     public static void main(String[] args)
