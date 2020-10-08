@@ -33,10 +33,10 @@ public class Encrypter
 
 
         String test = Arrays.toString(array)
-            .replace(",", "")
-            .replace("[", "")
-            .replace("]", "")
-            .replace(" ", "");
+                .replace(",", "")
+           .replace("[", "")
+           .replace("]", "")
+                .replace(" ", "");
         String encryptedNum = test;
         return encryptedNum;
 
