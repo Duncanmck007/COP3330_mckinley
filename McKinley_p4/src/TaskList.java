@@ -37,11 +37,11 @@ public class TaskList {
             LocalDate dueDate = LocalDate.parse(scan.nextLine());
 
             this.taskList.add(new TaskItem(title, project, dueDate));
-            App.showMessage("Task is added successfully", false);
+            TaskApp.showMessage("Task is added successfully", false);
 
             return true;
         } catch (Exception e) {
-            App.showMessage(e.getMessage(), true);
+            TaskApp.showMessage(e.getMessage(), true);
             return false;
         }
 
@@ -74,11 +74,11 @@ public class TaskList {
                 isTaskUpdated = true;
             }
 
-            App.showMessage("Task is " + (isTaskUpdated ? "updated successfully" : "NOT modified") + ": Returning to Main Menu", false);
+            TaskApp.showMessage("Task is " + (isTaskUpdated ? "updated successfully" : "NOT modified") + ": Returning to Main Menu", false);
 
             return true;
         } catch (Exception e) {
-            App.showMessage(e.getMessage(), true);
+            TaskApp.showMessage(e.getMessage(), true);
             return false;
         }
     }
@@ -145,9 +145,9 @@ public class TaskList {
 
             TaskItem task = taskList.get(taskIndex);
 
-            App.showMessage("Task Number " + selectedTask + "  is selected:" + task.formattedStringOfTask(), false);
+            TaskApp.showMessage("Task Number " + selectedTask + "  is selected:" + task.formattedStringOfTask(), false);
 
-            App.editTask();
+            TaskApp.editTask();
             Scanner scan = new Scanner(System.in);
             String editChoice = scan.nextLine();
             switch (editChoice) {
@@ -156,21 +156,21 @@ public class TaskList {
                     break;
                 case "2":
                     task.markCompleted();
-                    App.showMessage("Task Number " + selectedTask + " is marked as complete.", false);
+                    TaskApp.showMessage("Task Number " + selectedTask + " is marked as complete.", false);
                     break;
                 case "3":
                     task.markIncomplete();
-                    App.showMessage("Task Number " + selectedTask + " is marked as Incomplete.", false);
+                    TaskApp.showMessage("Task Number " + selectedTask + " is marked as Incomplete.", false);
                     break;
                 case "4":
                     taskList.remove(task);
-                    App.showMessage("Task Number " + selectedTask + " is deleted.", true);
+                    TaskApp.showMessage("Task Number " + selectedTask + " is deleted.", true);
                     break;
                 default:
-                    App.showMessage("Returning to Main Menu", true);
+                    TaskApp.showMessage("Returning to Main Menu", true);
             }
         } catch (Exception e) {
-            App.showMessage(e.getMessage(), true);
+            TaskApp.showMessage(e.getMessage(), true);
         }
     }
 
@@ -191,7 +191,7 @@ public class TaskList {
 
         try {
             if (!Files.isReadable(Paths.get(filename))) {
-                App.showMessage("The file " + filename + " does not exists", true);
+                TaskApp.showMessage("The file " + filename + " does not exists", true);
                 return false;
             }
 
@@ -205,7 +205,7 @@ public class TaskList {
             return true;
 
         } catch (Exception e) {
-            App.showMessage(e.getMessage(), true);
+            TaskApp.showMessage(e.getMessage(), true);
             return false;
         }
     }
@@ -222,12 +222,12 @@ public class TaskList {
             return true;
 
         } catch (Exception e) {
-            App.showMessage(e.getMessage(), true);
+            TaskApp.showMessage(e.getMessage(), true);
             return false;
         }
     }
 
-    public static void NewFileCreate(String newFileName) {
+    public void NewFileCreate(String newFileName) {
 
         try {
             File myObj = new File(newFileName);
