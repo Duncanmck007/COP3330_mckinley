@@ -32,14 +32,14 @@ public class ContactListTest {
 
 
     @Test
-    public void addingTaskItemsIncreasesSize() {
+    public void addingContactItemsIncreasesSize() {
         ArrList = new ArrayList<ContactItem>();
         this.ArrList.add(new ContactItem(validFirstName,validLastName, validPhoneNumber, validEmail));
         assertEquals(1, ArrList.size());
     }
 
     @Test
-    public void removingTaskItemsDecreasesSize() {
+    public void removingContactItemsDecreasesSize() {
         ArrList = new ArrayList<ContactItem>();
         this.ArrList.add(new ContactItem(validFirstName,validLastName, validPhoneNumber, validEmail));
         this.ArrList.remove(0);
@@ -47,7 +47,7 @@ public class ContactListTest {
     }
 
     @Test
-    public void removingTaskItemsFailsWithInvalidIndex() {
+    public void removingContactItemsFailsWithInvalidIndex() {
         boolean success = false;
         ArrList = new ArrayList<ContactItem>();
         try {
@@ -63,13 +63,13 @@ public class ContactListTest {
     }
 
     @Test
-    public void newTaskListIsEmpty() {
+    public void newContactListIsEmpty() {
         ArrList = new ArrayList<ContactItem>();
         assertTrue(ArrList.isEmpty());
     }
 
     @Test
-    public void gettingTaskItemDescriptionSucceedsWithValidIndex() {
+    public void gettingContactItemPhoneNumberSucceedsWithValidIndex() {
         ArrList = new ArrayList<ContactItem>();
         this.ArrList.add(new ContactItem(validFirstName,validLastName, validPhoneNumber, validEmail));
         ArrList.get(0);
@@ -77,7 +77,7 @@ public class ContactListTest {
     }
 
     @Test
-    public void gettingTaskItemDescriptionFailsWithValidIndex() {
+    public void gettingContactItemPhoneNumberFailsWithValidIndex() {
         ArrList = new ArrayList<ContactItem>();
 
         boolean success = false;
@@ -94,7 +94,7 @@ public class ContactListTest {
     }
 
     @Test
-    public void gettingTaskItemTitleSucceedsWithValidIndex() {
+    public void gettingContactItemNameSucceedsWithValidIndex() {
         ArrList = new ArrayList<ContactItem>();
         this.ArrList.add(new ContactItem(validFirstName,validLastName, validPhoneNumber, validEmail));
         ArrList.get(0);
@@ -102,7 +102,7 @@ public class ContactListTest {
     }
 
     @Test
-    public void gettingTaskItemTitleFailsWithValidIndex() {
+    public void gettingContactItemNameFailsWithValidIndex() {
         ArrList = new ArrayList<ContactItem>();
 
         boolean success = false;
@@ -119,7 +119,7 @@ public class ContactListTest {
     }
 
     @Test
-    public void gettingTaskItemDueDateFailsWithValidIndex() {
+    public void gettingContactItemEmailFailsWithValidIndex() {
         ArrList = new ArrayList<ContactItem>();
 
         boolean success = false;
@@ -136,7 +136,7 @@ public class ContactListTest {
     }
 
     @Test
-    public void gettingTaskItemFirstNameFailsWithInvalidIndex() {
+    public void gettingContactItemFirstNameFailsWithInvalidIndex() {
         ArrList = new ArrayList<ContactItem>();
 
         boolean success = false;
@@ -154,7 +154,7 @@ public class ContactListTest {
     }
 
     @Test
-    public void editingTaskItemChangesValues() {
+    public void editingContactItemChangesValues() {
         ArrList = new ArrayList<ContactItem>();
         this.ArrList.add(new ContactItem(validFirstName,validLastName, validPhoneNumber, validEmail));
         String testFirstName = "Duncan";
@@ -174,7 +174,7 @@ public class ContactListTest {
 
 
     @Test
-    public void editingTaskItemPhoneNumberFailsWithInvalidIndex() {
+    public void editingContactItemPhoneNumberFailsWithInvalidIndex() {
         ArrList = new ArrayList<ContactItem>();
 
         boolean success = false;
@@ -192,7 +192,7 @@ public class ContactListTest {
     }
 
     @Test
-    public void editingTaskItemTitleChangesValues() {
+    public void editingContactItemNameChangesValues() {
         ArrList = new ArrayList<ContactItem>();
         this.ArrList.add(new ContactItem(validFirstName,validLastName, validPhoneNumber, validEmail));
         String testFirstName = "Please Work";
